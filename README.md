@@ -12,11 +12,11 @@ HBOP.py implements the HBOP algorithm and all its variants (see the "Impact of D
 
 To use the code, please keep all the packages and files in this repository in a single folder. To run HBOP.py, first change the path in line 18 of HBOP.py to your repository path. Then, run the following command in your command council.
 
-python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
+    python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
 
 Similarly, to run BOPF.py, first change the path in line 13 of BOPF.py to your repository path. Then, run the following command in your command council.
 
-python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
+    python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
 
 
 # How did we preprocess the data?
