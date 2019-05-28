@@ -23,7 +23,17 @@ Similarly, to run BOPF.py, first change the path in line 13 of BOPF.py to your r
 Running HBOP.py will result in the following output files.
 
 1. accuracies_[dataset name]_hbop.[runId].txt
+
     This file shows the accuracies of 18 variants of HBOP.
+    
+2. time_[dataset name]_hbop.[runId].txt
+
+    This file shows the running time of HBOP.
+
+3. preLabels_hy_[dataset name]_hbop.[runId].txt
+
+4. cache_hbop_[dataset name]_hbop.[runId]
+    This file caches the trained HBOP model, which is only used to avoid re-training when there is an existing model.
 
 
 # How did we preprocess the data?
