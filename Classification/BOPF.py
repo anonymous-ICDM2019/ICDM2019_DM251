@@ -317,39 +317,18 @@ if __name__ == '__main__':
     inputPath = sys.argv[3]
     savePath = sys.argv[4]
     
+    bopf = BOPF(inputPath = inputPath)
+    bopf.loadUCRDataset_2018(dataset, 'TRAIN')
+    bopf.train()
+    bopf.loadUCRDataset_2018(dataset, 'TEST')
+    bopf.test()
+    
     fName = savePath + '/accuracies_' + dataset + '_BOPF_' + runId + '.txt'
-    if not os.path.exists(fName):
-        fName = savePath + '/cache_bopf_' + dataset + '_BOPF_' + runId
-        if os.path.exists(fName):
-            file = open(fName, 'rb')
-            bopf = pickle.load(file)
-        else:
-            bopf = BOPF(inputPath = inputPath)
-            bopf.loadUCRDataset_2018(dataset, 'TRAIN')
-            bopf.train()
-            try:
-                fName = savePath + '/cache_bopf_' + dataset + '_BOPF_' + runId
-                file = open(fName, 'wb')
-                pickle.dump(bopf, file)
-                file.close()
-            except:
-                print('Model save failed!')
-                sys.stdout.flush()
-        bopf.loadUCRDataset_2018(dataset, 'TEST')
-        bopf.test()
-        
-        fName = savePath + '/accuracies_' + dataset + '_BOPF_' + runId + '.txt'
-        file = open(fName, 'w')
-        file.write(str(bopf.accuracy))
-        file.close()
-        
-        fName = savePath + '/time_'+ dataset + '_BOPF_' + runId + '.txt'
-        file = open(fName, 'w')
-        file.write(dataset + "    " + str(bopf.trainTime) + "    " + str(bopf.testTimePerTs) + "\n")
-        
-        fName = savePath + '/preLabels_' + dataset + '_BOPF_' + runId + '.txt'
-        file = open(fName, 'w')
-        for i in range(len(bopf.preLabels)):
-            file.write(str(bopf.preLabels[i]) + "\n")
-        file.close()
+    file = open(fName, 'w')
+    file.write(str(bopf.accuracy))
+    file.close()
+    
+    fName = savePath + '/time_'+ dataset + '_BOPF_' + runId + '.txt'
+    file = open(fName, 'w')
+    file.write(dataset + "    " + str(bopf.trainTime) + "    " + str(bopf.testTimePerTs) + "\n")
     
