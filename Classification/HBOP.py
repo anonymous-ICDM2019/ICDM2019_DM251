@@ -462,9 +462,9 @@ class HBOP(Classifier):
             
         ####Not timed
         all_cv1_scores = -np.sort(-np.array(all_cv1_scores))
-        allValidWordTypes = [[0, 1], [0], [1]]
-        allValidSLAWordSizes = [[6, 8, 10], [6, 8, 10], []]
-        allValidSAXWordSizes = [[6, 7, 8], [], [3, 4, 5, 6, 7, 8]]
+        allValidWordTypes = [[0, 1], [1]]
+        allValidSLAWordSizes = [[6, 8, 10], []]
+        allValidSAXWordSizes = [[6, 7, 8], [3, 4, 5, 6, 7, 8]]
         allValidXSimIds = [[0, 1, 2, 3], [0, 1], [2, 3]]
         self.allFineMetIds = []
         self.allBestNumMethods = []
@@ -678,40 +678,18 @@ if __name__ == '__main__':
     inputPath = sys.argv[3]
     savePath = sys.argv[4]
     
+    hbop = HBOP(inputPath = inputPath)
+    hbop.loadUCRDataset_2018(dataset, 'TRAIN')
+    hbop.train()
+    hbop.loadUCRDataset_2018(dataset, 'TEST')
+    hbop.test()
+    
     fName = savePath + '/accuracies_' + dataset + '_HBOP.' + runId + '.txt'
-    if not os.path.exists(fName):
-        fName = savePath + '/cache_hbop_' + dataset + '_HBOP.' + runId
-        if os.path.exists(fName):
-            file = open(fName, 'rb')
-            hbop = pickle.load(file)
-        else:
-            hbop = HBOP(inputPath = inputPath)
-            hbop.loadUCRDataset_2018(dataset, 'TRAIN')
-            hbop.train()
-            try:
-                fName = savePath + '/cache_hbop_' + dataset + '_HBOP.' + runId
-                file = open(fName, 'wb')
-                pickle.dump(hbop, file)
-                file.close()
-            except:
-                print('Model save failed!')
-                sys.stdout.flush()
-        hbop.loadUCRDataset_2018(dataset, 'TEST')
-        hbop.test()
-        
-        fName = savePath + '/accuracies_' + dataset + '_HBOP.' + runId + '.txt'
-        file = open(fName, 'w')
-        for i in range(len(hbop.accuracies)): 
-            file.write(str(hbop.accuracies[i]) + "\n")
-        file.close()
-        
-        fName = savePath + '/time_'+ dataset + '_HBOP.' + runId + '.txt'
-        file = open(fName, 'w')
-        file.write(dataset + "    " + str(hbop.trainTime) + "    " + str(hbop.testTimePerTs) + "    " 
-                   + str(hbop.XMeansTime) + "    " + str(hbop.accuracy) + "\n")
-        
-        fName = savePath + '/preLabels_hy_'+ dataset + '_HBOP.' + runId + '.txt'
-        file = open(fName, 'w')
-        for i in range(len(hbop.preLabels_hy)):
-            file.write(str(hbop.preLabels_hy[i]) + "\n")
-        file.close()
+    file = open(fName, 'w')
+    for i in range(len(hbop.accuracies)): 
+        file.write(str(hbop.accuracies[i]) + "\n")
+    file.close()
+    
+    fName = savePath + '/time_'+ dataset + '_HBOP.' + runId + '.txt'
+    file = open(fName, 'w')
+    file.write(dataset + "    " + str(hbop.trainTime) + "    " + str(hbop.testTimePerTs) + "    " + str(hbop.accuracy) + "\n")
