@@ -14,9 +14,16 @@ To use the code, please keep all the packages and files in this repository in a 
 
     python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
 
+Here runId is used to distinguish between different runs on the same dataset.
+
 Similarly, to run BOPF.py, first change the path in line 13 of BOPF.py to your repository path. Then, run the following command in your command council.
 
     python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
+    
+Running HBOP.py will result in the following output files.
+
+1. accuracies_[dataset name]_hbop.[runId].txt
+    This file shows the accuracies of 18 variants of HBOP.
 
 
 # How did we preprocess the data?
@@ -58,4 +65,3 @@ For the original C++ code of BOPF, we have made several minor modifications to e
             r = r1*r1 / (r2*r3);
         else
             r = 0;
-   
