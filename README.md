@@ -16,20 +16,38 @@ To use the code, please keep all the packages and files in this repository in a 
 
 Here runId is used to distinguish between different runs on the same dataset.
 
+For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run HBOP on the sample dataset (FaceFour) included in our repository and save the outputs in the Results folder. In this case, please run the following command.
+
+    python.exe G:\HBOP\Classification\HBOP.py FaceFour 0 G:/HBOP/Data G:/HBOP/Results  
+
 Similarly, to run BOPF.py, first change the path in line 13 of BOPF.py to your repository path. Then, run the following command in your command council.
 
     python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the dataset] [full path of the folder to save the results]
-    
+
+For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run BOPF on the sample dataset (FaceFour) included in our repository and save the outputs in the Results folder. In this case, please run the following command.
+
+    python.exe G:\HBOP\Classification\BOPF.py FaceFour 0 G:/HBOP/Data G:/HBOP/Results  
+
 Running HBOP.py will result in the following output files.
 
-1. accuracies_[dataset name]_hbop.[runId].txt
+1. accuracies_[dataset name]_HBOP.[runId].txt
 
     This file shows the accuracies of 12 variants of HBOP, in the order of HBOP-NW, HBOP-NX-NW, HBOP-X-NW, HBOP-SAX-NW, HBOP-SAX-NX-NW, HBOP-SAX-X-NW, HBOP, HBOP-NX, HBOP-X, HBOP-SAX, HBOP-SAX-NX, HBOP-SAX-X.
     
-2. time_[dataset name]_hbop.[runId].txt
+2. time_[dataset name]_HBOP.[runId].txt
 
     This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time, classification time per example and accuracy.
 
+Running BOPF.py will result in the following output files.
+
+1. accuracies_[dataset name]_BOPF.[runId].txt
+
+    This file shows the accuracy of BOPF.
+    
+2. time_[dataset name]_BOPF.[runId].txt
+
+    This file shows the running time of BOPF. The three outputs are the dataset name, training time and classification time per example.
+    
 # How did we preprocess the data?
 
 We have used datasets from the latest version of the UCR archive 
