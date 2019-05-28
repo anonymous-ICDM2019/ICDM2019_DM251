@@ -12,29 +12,23 @@ HBOP.py implements the HBOP algorithm and all its variants (see the "Impact of D
 
 To use the code, please keep all the packages and files in this repository in a single folder. To run HBOP.py, first change the path in line 18 of HBOP.py to your repository path. Then, run the following command in your command council.
 
-    python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
+    python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the dataset] [full path of the folder to save the results]
 
 Here runId is used to distinguish between different runs on the same dataset.
 
 Similarly, to run BOPF.py, first change the path in line 13 of BOPF.py to your repository path. Then, run the following command in your command council.
 
-    python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the UCR dataset] [full path of the folder to save the results]
+    python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the dataset] [full path of the folder to save the results]
     
 Running HBOP.py will result in the following output files.
 
 1. accuracies_[dataset name]_hbop.[runId].txt
 
-    This file shows the accuracies of 18 variants of HBOP.
+    This file shows the accuracies of 12 variants of HBOP, in the order of HBOP-NW, HBOP-NX-NW, HBOP-X-NW, HBOP-SAX-NW, HBOP-SAX-NX-NW, HBOP-SAX-X-NW, HBOP, HBOP-NX, HBOP-X, HBOP-SAX, HBOP-SAX-NX, HBOP-SAX-X.
     
 2. time_[dataset name]_hbop.[runId].txt
 
-    This file shows the running time of HBOP.
-
-3. preLabels_hy_[dataset name]_hbop.[runId].txt
-
-4. cache_hbop_[dataset name]_hbop.[runId]
-    This file caches the trained HBOP model, which is only used to avoid re-training when there is an existing model.
-
+    This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time, classification time per example and accuracy.
 
 # How did we preprocess the data?
 
