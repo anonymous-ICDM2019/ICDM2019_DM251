@@ -34,18 +34,28 @@ In our paper, we compared our HBOP method with three 1NN algorithms and BOPF. Th
 For the original C++ code of BOPF, we have made several minor modifications to eliminate bugs. Concretely, these modifications are as follows:
 
 1. Line 242 of the original code is 
-    int i, j, k, p, maxK;
+    
+        int i, j, k, p, maxK;
    which we have changed to
-    int i, j, k, p, maxK = 0;
+    
+        int i, j, k, p, maxK = 0;
+
 2. Line 320 of the original code is 
-    int i, j, k, p, maxK;
-   which we have changed to
-    int i, j, k, p, maxK = 0;
+
+        int i, j, k, p, maxK;
+  
+  which we have changed to
+     
+        int i, j, k, p, maxK = 0;
+        
 3. Line 500 of the original code is
-    r = r1*r1 / (r2*r3)
-   which we have changed to
-    if(r2 != 0)
+
         r = r1*r1 / (r2*r3);
-    else
-        r = 0;
+   
+   which we have changed to
+   
+        if(r2 != 0)
+            r = r1*r1 / (r2*r3);
+        else
+            r = 0;
    
