@@ -29,4 +29,23 @@ For datasets with missing values, we followed the briefing document of the UCR a
 
 # How did we obtain the experimental results?
 
-In our paper, we compared our HBOP method with three 1NN algorithms and BOPF. The classification error rates of the 1NN algorithms were drawn from the UCR archive webpage. For BOPF, we ran both our Python implementation and the original C++ implementation, and chose the better result. All error rates were rounded to the nearest four decimal digits for comparison.
+In our paper, we compared our HBOP method with three 1NN algorithms and BOPF. The classification error rates of the 1NN algorithms were drawn from the UCR archive webpage. For BOPF, we ran both our Python implementation and the original C++ implementation (with minor modifications, see below), and chose the better result. All error rates were rounded to the nearest four decimal digits for comparison.
+
+For the original C++ code of BOPF, we have made several minor modifications to eliminate bugs. Concretely, these modifications are as follows:
+
+1. Line 242 of the original code is 
+    int i, j, k, p, maxK;
+   which we have changed to
+    int i, j, k, p, maxK = 0;
+2. Line 320 of the original code is 
+    int i, j, k, p, maxK;
+   which we have changed to
+    int i, j, k, p, maxK = 0;
+3. Line 500 of the original code is
+    r = r1*r1 / (r2*r3)
+   which we have changed to
+    if(r2 != 0)
+        r = r1*r1 / (r2*r3);
+    else
+        r = 0;
+   
