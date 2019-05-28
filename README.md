@@ -43,8 +43,8 @@ For the original C++ code of BOPF, we have made several minor modifications to e
 2. Line 320 of the original code is 
 
         int i, j, k, p, maxK;
-  
-  which we have changed to
+    
+    which we have changed to
      
         int i, j, k, p, maxK = 0;
         
