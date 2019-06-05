@@ -12,7 +12,7 @@ To use the code, please keep all the packages and files in this repository in a 
 
 Here runId is used to distinguish between different runs on the same dataset.
 
-For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run HBOP on the sample dataset (FaceFour) included in our repository and save the outputs in the Results folder. In this case, please run the following command.
+For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run HBOP on the sample dataset (FaceFour) included in our repository and save the outputs in a pre-existing Results folder. In this case, please run the following command.
 
     python.exe G:\HBOP\Classification\HBOP.py FaceFour 0 G:/HBOP/Data G:/HBOP/Results  
     
