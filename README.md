@@ -68,4 +68,4 @@ For the original C++ code of BOPF, we made several minor modifications to elimin
         else
             r = 0;
 
-As with efficiency, we compared the training time of HBOP and BOPF. We implemented BOPF with Python and used this implementation to obtain the training time of BOPF. Note that this Python implementation was NOT used to obtain the classification accuracies.
+As with efficiency, we compared the training time of HBOP and BOPF. We implemented BOPF with Python and used this implementation to obtain the training time of BOPF. Note that this Python implementation was NOT used to obtain the classification accuracies. The running times are averaged over three runs. Due to limited time, the three runs were run roughly concurrently on our PC.
