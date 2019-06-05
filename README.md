@@ -26,7 +26,7 @@ Running HBOP.py will result in the following output files.
 
     This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time, classification time per example and accuracy.
 
-Please note that due to implementation bias, in certain cases, the accuracies of the full version of HBOP in the "accuracies" file and the "time" file can be different. Fortunately, this only happened in very few cases in our experiments.
+Please note that in certain cases, the accuracies of the full version of HBOP in the "accuracies" file and the "time" file can be different. This is likely due to implementation bias. Fortunately, this only happened in very few cases in our experiments.
     
 # How did we preprocess the data?
 
