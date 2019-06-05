@@ -4,7 +4,7 @@ This repository holds the source code and raw experimental results of ICDM 2019 
 
 # How to use the code
 
-The main file in this repository is HBOP.py. It implements the HBOP algorithm and all its variants (see the "Impact of Design Choices" section in our paper). Note that only the full version of HBOP is timed.
+The main file in this repository is HBOP.py under the Classification folder. It implements the HBOP algorithm and all its variants (see the "Impact of Design Choices" section in our paper). Note that only the full version of HBOP is timed. Also, our raw experimental results are in the Results folder.
 
 To use the code, please keep all the packages and files in this repository in a single folder. First, change the path in line 18 of HBOP.py to your repository path. Then, run the following command in your command council.
 
@@ -12,7 +12,7 @@ To use the code, please keep all the packages and files in this repository in a 
 
 Here runId is used to distinguish between different runs on the same dataset.
 
-For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run HBOP on the sample dataset (FaceFour) included in our repository and save the outputs in a pre-existing Results folder. In this case, please run the following command.
+For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run HBOP on the sample dataset (FaceFour) included in our repository and save the outputs in the Results folder. In this case, please run the following command.
 
     python.exe G:\HBOP\Classification\HBOP.py FaceFour 0 G:/HBOP/Data G:/HBOP/Results  
     
@@ -38,7 +38,7 @@ For datasets with missing values, we followed the briefing document of the UCR a
 
 # How did we obtain the experimental results?
 
-In our paper, we compared the classification accuracy of our HBOP method with three 1NN algorithms and BOPF. The classification error rates of the 1NN algorithms were drawn from the UCR archive webpage. For BOPF, we ran the original C++ code of BOPF (with minor modifications, see below) to obtain the results. All error rates were rounded to the nearest four decimal digits for comparison.
+In our paper, we compared the classification accuracy of our HBOP method with three 1NN algorithms and BOPF. The classification error rates of the 1NN algorithms were drawn from the UCR archive webpage. For BOPF, we ran the original C++ code of BOPF (with minor modifications, see below) to obtain the results. All error rates were rounded to the nearest four decimal digits prior to comparison.
 
 For the original C++ code of BOPF, we made several minor modifications to eliminate bugs. Concretely, these modifications are as follows:
 
