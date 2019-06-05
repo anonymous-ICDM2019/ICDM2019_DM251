@@ -4,13 +4,9 @@ This repository holds the source code and raw experimental results of ICDM 2019 
 
 # How to use the code
 
-The source code implements both our HBOP algorithm and the BOPF algorithm proposed in 
+The main file in this repository is HBOP.py. It implements the HBOP algorithm and all its variants (see the "Impact of Design Choices" section in our paper). Note that only the full version of HBOP is timed.
 
-    Xiaosheng Li, Jessica Lin: Linear Time Complexity Time Series Classification with Bag-of-Pattern-Features. ICDM 2017: 277-286
-
-HBOP.py implements the HBOP algorithm and all its variants (see the "Impact of Design Choices" section in our paper). Note that only the full version of HBOP is timed. BOPF.py implements the BOPF algorithm.
-
-To use the code, please keep all the packages and files in this repository in a single folder. To run HBOP.py, first change the path in line 18 of HBOP.py to your repository path. Then, run the following command in your command council.
+To use the code, please keep all the packages and files in this repository in a single folder. First, change the path in line 18 of HBOP.py to your repository path. Then, run the following command in your command council.
 
     python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the dataset] [full path of the folder to save the results]
 
@@ -19,15 +15,7 @@ Here runId is used to distinguish between different runs on the same dataset.
 For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run HBOP on the sample dataset (FaceFour) included in our repository and save the outputs in the Results folder. In this case, please run the following command.
 
     python.exe G:\HBOP\Classification\HBOP.py FaceFour 0 G:/HBOP/Data G:/HBOP/Results  
-
-Similarly, to run BOPF.py, first change the path in line 13 of BOPF.py to your repository path. Then, run the following command in your command council.
-
-    python.exe [full path of BOPF.py] [dataset name] [runId] [mother path of the dataset] [full path of the folder to save the results]
-
-For example, suppose you have saved the entire repository at G:\HBOP, and you wish to run BOPF on the sample dataset (FaceFour) included in our repository and save the outputs in the Results folder. In this case, please run the following command.
-
-    python.exe G:\HBOP\Classification\BOPF.py FaceFour 0 G:/HBOP/Data G:/HBOP/Results  
-
+    
 Running HBOP.py will result in the following output files.
 
 1. accuracies_[dataset name]_HBOP.[runId].txt
@@ -38,15 +26,7 @@ Running HBOP.py will result in the following output files.
 
     This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time, classification time per example and accuracy.
 
-Running BOPF.py will result in the following output files.
-
-1. accuracies_[dataset name]_BOPF.[runId].txt
-
-    This file shows the accuracy of BOPF.
-    
-2. time_[dataset name]_BOPF.[runId].txt
-
-    This file shows the running time of BOPF. The three outputs are the dataset name, training time and classification time per example.
+Please note that due to implementation bias, in certain cases, the accuracies of the full version of HBOP in the "accuracies" file and the "time" file can be different. Fortunately, this only happened in very few cases in our experiments.
     
 # How did we preprocess the data?
 
@@ -58,9 +38,9 @@ For datasets with missing values, we followed the briefing document of the UCR a
 
 # How did we obtain the experimental results?
 
-In our paper, we compared our HBOP method with three 1NN algorithms and BOPF. The classification error rates of the 1NN algorithms were drawn from the UCR archive webpage. For BOPF, we ran both our Python implementation and the original C++ implementation (with minor modifications, see below), and chose the better result. All error rates were rounded to the nearest four decimal digits for comparison.
+In our paper, we compared the classification accuracy of our HBOP method with three 1NN algorithms and BOPF. The classification error rates of the 1NN algorithms were drawn from the UCR archive webpage. For BOPF, we ran the original C++ code of BOPF (with minor modifications, see below) to obtain the results. All error rates were rounded to the nearest four decimal digits for comparison.
 
-For the original C++ code of BOPF, we have made several minor modifications to eliminate bugs. Concretely, these modifications are as follows:
+For the original C++ code of BOPF, we made several minor modifications to eliminate bugs. Concretely, these modifications are as follows:
 
 1. Line 242 of the original code is 
     
@@ -87,3 +67,5 @@ For the original C++ code of BOPF, we have made several minor modifications to e
             r = r1*r1 / (r2*r3);
         else
             r = 0;
+
+As with efficiency, we compared the training time of HBOP and BOPF. We implemented BOPF with Python and used this implementation to obtain the training time of BOPF. Note that this Python implementation was NOT used to obtain the classification accuracies.
