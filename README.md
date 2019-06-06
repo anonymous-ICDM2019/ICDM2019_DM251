@@ -6,7 +6,7 @@ This repository holds the source code and raw experimental results of ICDM 2019 
 
 The main file in this repository is HBOP.py under the Classification folder. It implements the HBOP algorithm and all its variants (see the "Impact of Design Choices" section in our paper). Note that only the full version of HBOP is timed. Also, our raw experimental results are in the Results folder.
 
-To use the code, please keep all the packages and files in this repository in a single folder. First, change the path in line 18 of HBOP.py to your repository path. Then, run the following command in your command council.
+To use the code, please keep all the packages and files in this repository in a single folder, and make sure that you have Python 3 and all the packages we have used installed. Before running the code, first change the path in line 18 of HBOP.py to the mother folder's path. Then, run the following command in your command council.
 
     python.exe [full path of HBOP.py] [dataset name] [runId] [mother path of the dataset] [full path of the folder to save the results]
 
@@ -24,7 +24,7 @@ Running HBOP.py will result in the following output files.
     
 2. time_[dataset name]_HBOP.[runId].txt
 
-    This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time, classification time per example and accuracy.
+    This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time and accuracy.
 
 Please note that in certain cases, the accuracies of the full version of HBOP in the "accuracies" file and the "time" file can be different. This is likely due to implementation bias. Fortunately, this only happened in very few cases in our experiments.
     
