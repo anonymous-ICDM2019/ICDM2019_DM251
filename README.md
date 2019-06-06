@@ -26,7 +26,7 @@ Running HBOP.py will result in the following output files.
 
     This file shows the running time of the full version of HBOP. The four outputs are the dataset name, training time and accuracy.
 
-Please note that in certain cases, the accuracies of the full version of HBOP in the "accuracies" file and the "time" file can be different. This is likely due to implementation bias. Fortunately, this only happened in very few cases in our experiments.
+Please note that in certain cases, the accuracies of the full version of HBOP in the "accuracies" file and the "time" file can be different. This is likely due to implementation bias. Fortunately, this only happened in very few cases in our experiments. When such inconsistencies occured, we used the accuracy in the "time" file as the final accuracy.
     
 # How did we preprocess the data?
 
@@ -34,7 +34,7 @@ We have used datasets from the latest version of the UCR archive
 
     Hoang Anh Dau, Eamonn Keogh, Kaveh Kamgar, Chin-Chia Michael Yeh, Yan Zhu, Shaghayegh Gharghabi , Chotirat Ann Ratanamahatana, Yanping Chen, Bing Hu, Nurjahan Begum, Anthony Bagnall , Abdullah Mueen and Gustavo Batista (2018). The UCR Time Series Classification Archive. URL https://www.cs.ucr.edu/~eamonn/time_series_data_2018/
     
-For datasets with missing values, we followed the briefing document of the UCR archive, and filled the missing values with linear interpolation. For datasets with variable time series lengths, both HBOP and BOPF can in theory handle such cases directly. However, the original C++ implementation of BOPF demands the time series to be of the same length, thus we opt to conduct this procedure. The UCR  briefing document suggests padding with low amplitude random values. Instead, we choose to pad zeros. The reason why we make this choice is that the low amplitude values can be significantly amplified after z-normalization. For subsequence-based methods such as BOPF and our HBOP, this may significantly affect the results.
+For datasets with missing values, we followed the briefing document of the UCR archive, and filled the missing values with linear interpolation. For datasets with variable time series lengths, both HBOP and BOPF can in theory handle such cases directly. However, the original C++ implementation of BOPF demands the time series to be of the same length, thus we opt to conduct this procedure. The UCR briefing document suggests padding with low amplitude random values. Instead, we choose to pad zeros. The reason why we make this choice is that the low amplitude values can be significantly amplified after z-normalization. For subsequence-based methods such as BOPF and our HBOP, this may significantly affect the results.
 
 # How did we obtain the experimental results?
 
